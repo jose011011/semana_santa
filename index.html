@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semana Santa en Bolivia</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    /* NAVBAR */
+    .navbar-nav {
+          justify-content: center;
+          width: 100%;
+        }
+    .navbar-nav .nav-item:hover {
+      background-color: #17a2b8;
+    }
+    .navbar-nav .nav-link:hover {
+      color: white !important;
+    }
+    .navbar-nav .nav-link {
+      color: #ffffff;
+    }
+    .dropdown-menu .dropdown-item {
+      color: #17a2b8;
+    }
+    .dropdown-menu .dropdown-item:hover {
+      background-color: #17a2b8;
+      color: white !important;
+    }
+    
+    /* CAROUSEL */
+    .carousel-item img {
+      max-height: 500px;
+      object-fit: cover;
+      width: 100%;
+    }
+    
+    /* FOOTER FIX */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    main {
+      flex: 1;
+    }
+    </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <img src="res/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+      </a>
+      <a class="navbar-brand text-info" href="#">SEMANA SANTA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item btn btn-outline-info my-2 my-sm-0 m-3">
+            <a class="nav-link active text-info" onclick="inicio()">INICIO</a>
+          </li>
+          <li class="nav-item btn btn-outline-info my-2 my-sm-0 m-3">
+            <a class="nav-link text-info" onclick="receta()">RECETAS</a>
+          </li>
+          <li class="nav-item dropdown btn btn-outline-info my-2 my-sm-0 m-3">
+            <a class="nav-link dropdown-toggle text-info" href="#" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Más
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" onclick="tradiciones()" href="#">TRADICIONES</a></li>
+              <li><a class="dropdown-item" onclick="historia()" href="#">HISTORIA</a></li>
+              <li><a class="dropdown-item" onclick="turismo()" href="#">TURISMO</a></li>
+            </ul>
+          </li>
+          <li class="nav-item btn btn-outline-info my-2 my-sm-0 m-3">
+            <a class="nav-link text-info" href="#">NOSOTROS</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Contenido principal -->
+  <main id="contenido" class="container my-4"></main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light mt-auto">
+    <div class="container py-5">
+      <h2 class="text-center">Semana Santa en Bolivia</h2>
+      <p class="text-center">Descubre las tradiciones, recetas y turismo de Semana Santa en Bolivia.</p>
+
+      <div class="row">
+        <div class="col-6 col-md-3 mb-3">
+          <h5>Enlaces</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item"><a href="#" class="nav-link text-light p-0">Inicio</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-light p-0">Recetas</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-light p-0">Tradiciones</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-light p-0">Historia</a></li>
+            <li class="nav-item"><a href="#" class="nav-link text-light p-0">Turismo</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-5 offset-md-1 mb-3">
+          <form>
+            <h5>Suscríbete</h5>
+            <p>Recibe novedades mensualmente.</p>
+            <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+              <input type="email" class="form-control" placeholder="Correo electrónico">
+              <button class="btn btn-info" type="submit">Suscribirse</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column flex-sm-row justify-content-between pt-4 mt-4 border-top">
+        <p>&copy; 2025 Juan José Mamani Machaca</p>
+        <ul class="list-unstyled d-flex">
+          <li class="ms-3"><a class="text-light" href="#"><i class="bi bi-facebook"></i></a></li>
+          <li class="ms-3"><a class="text-light" href="#"><i class="bi bi-whatsapp"></i></a></li>
+          <li class="ms-3"><a class="text-light" href="#"><i class="bi bi-github"></i></a></li>
+          <li class="ms-3"><a class="text-light" href="#"><i class="bi bi-instagram"></i></a></li>
+          <li class="ms-3"><a class="text-light" href="#"><i class="bi bi-linkedin"></i></a></li>
+          <li class="ms-3"><a class="text-light" href="#"><i class="bi bi-twitter"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS directo para funciones de navegación -->
+  <script>
+    function inicio() {
+      document.getElementById('contenido').innerHTML = `
+          <main>
+    <!-- CAROUSEL DE DEPARTAMENTOS -->
+    <div id="carouselTurismo" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <!-- SLIDE EXAMPLE -->
+        <div class="carousel-item active">
+          <img src="img/turismo/beni.jpg" class="d-block w-100" alt="Beni">
+          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-2">
+            <h5>Beni</h5>
+            <p>Rico en biodiversidad y cultura, ideal para el ecoturismo en Semana Santa.</p>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="img/turismo/chuquisaca.jpg" class="d-block w-100" alt="Chuquisaca">
+          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-2">
+            <h5>Chuquisaca</h5>
+            <p>Sucre, la ciudad blanca, brilla con procesiones coloniales y tradiciones vivas.</p>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="img/turismo/cochabamba.jpg" class="d-block w-100" alt="Cochabamba">
+          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-2">
+            <h5>Cochabamba</h5>
+            <p>La Llajta celebra con sabor y fe entre platos tradicionales y misas solemnes.</p>
+          </div>
+        </div>
+
+        <!-- Agrega aquí los demás departamentos -->
+        <!-- Usa el mismo formato para: la_paz, oruro, pando, potosi, santa cruz, tarija -->
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselTurismo" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselTurismo" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Siguiente</span>
+      </button>
+    </div>
+  </main>
+      `;
+    }
+
+    function historia() {
+      document.getElementById('contenido').innerHTML = `
+            <div class="container my-5">
+        <h1 class="text-center mb-4">Historia de la <span class="text-primary">Semana Santa</span> en Bolivia</h1>
+        <p class="lead text-center">Explora cómo se vive esta tradición religiosa en cada <span class="fw-bold text-danger">departamento</span> del país.</p>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <!-- La Paz -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://www.paginasiete.bo/wp-content/uploads/2023/04/06/viacrucis-cerca-a-la-iglesia-de-san-francisco.jpg" class="card-img-top" alt="La Paz Semana Santa">
+                    <div class="card-body">
+                        <h5 class="card-title">La Paz <span class="badge bg-primary">Altiplano</span></h5>
+                        <p class="card-text">La Semana Santa en La Paz combina <span class="text-warning">devoción profunda</span> con historia colonial. Las procesiones recorren el centro histórico y los templos más antiguos.</p>
+                        <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalLaPaz">Leer más</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal La Paz -->
+            <div class="modal fade" id="modalLaPaz" tabindex="-1">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Semana Santa en La Paz</h5>
+                            <button class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>La procesión del Viernes Santo en la ciudad de La Paz es una de las más multitudinarias. La Iglesia de San Francisco y la Catedral Metropolitana son puntos clave. Muchos fieles realizan el recorrido descalzos en señal de penitencia.</p>
+                            <p><span class="fw-bold text-success">Dato interesante:</span> se visitan tradicionalmente 7 iglesias el Jueves Santo, una costumbre que simboliza el acompañamiento a Jesús.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cochabamba -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://www.lostiempos.com/sites/default/files/styles/noticia_detalle/public/media_imagen/2022/04/15/via.jpg" class="card-img-top" alt="Cochabamba Semana Santa">
+                    <div class="card-body">
+                        <h5 class="card-title">Cochabamba <span class="badge bg-success">Valle</span></h5>
+                        <p class="card-text">La ciudad del eterno sol celebra Semana Santa con procesiones en la colina de San Pedro y platillos como el <span class="text-info">pejtu de habas</span>.</p>
+                        <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalCochabamba">Leer más</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Cochabamba -->
+            <div class="modal fade" id="modalCochabamba" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Semana Santa en Cochabamba</h5>
+                            <button class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>La caminata de fe hacia la colina de San Pedro es una tradición para miles de fieles. También se celebra con comidas sin carne como el *pejtu*, el ají de arvejas y la sopa de pan.</p>
+                            <p><span class="fw-semibold text-primary">Dato:</span> Los viernes de Cuaresma se organizan conciertos de música sacra en las iglesias coloniales.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Santa Cruz -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://eju.tv/wp-content/uploads/2023/04/28-via-crucis-semana-santa.jpg" class="card-img-top" alt="Santa Cruz Semana Santa">
+                    <div class="card-body">
+                        <h5 class="card-title">Santa Cruz <span class="badge bg-danger">Oriente</span></h5>
+                        <p class="card-text">La Semana Santa cruceña destaca por sus <span class="fw-bold text-danger">viacrucis urbanos</span> y la gastronomía tradicional como el sonso de yuca y el majadito sin carne.</p>
+                        <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalSantaCruz">Leer más</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Santa Cruz -->
+            <div class="modal fade" id="modalSantaCruz" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Semana Santa en Santa Cruz</h5>
+                            <button class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>En Santa Cruz, muchas parroquias realizan viacrucis en los barrios, involucrando a la comunidad. Las zonas rurales mantienen las tradiciones antiguas como el canto de alabanzas.</p>
+                            <p><span class="text-success">Comida típica:</span> sonso de yuca, pastel de arroz, arroz con queso, majadito seco con huevo.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarija -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://www.tarijalibre.tarija.gob.bo/wp-content/uploads/2023/04/semana-santa-tarija.jpg" class="card-img-top" alt="Tarija Semana Santa">
+                    <div class="card-body">
+                        <h5 class="card-title">Tarija <span class="badge bg-warning">Sur</span></h5>
+                        <p class="card-text">En Tarija, la Semana Santa es conocida por sus procesiones solemnes y la música de bandas tradicionales. Los fieles también disfrutan de platos como la <span class="text-primary">sopa de maní</span>.</p>
+                        <button class="btn btn-outline-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalTarija">Leer más</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Tarija -->
+            <div class="modal fade" id="modalTarija" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Semana Santa en Tarija</h5>
+                            <button class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Las procesiones en Tarija son acompañadas por cánticos y rezos, destacando la devoción de sus habitantes. La gastronomía incluye platos como la sopa de maní y el saice.</p>
+                            <p><span class="fw-bold text-success">Dato curioso:</span> En algunas comunidades, se realizan representaciones teatrales de la Pasión de Cristo.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Potosí -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://www.potosilibre.bo/wp-content/uploads/2023/04/semana-santa-potosi.jpg" class="card-img-top" alt="Potosí Semana Santa">
+                    <div class="card-body">
+                        <h5 class="card-title">Potosí <span class="badge bg-secondary">Altiplano</span></h5>
+                        <p class="card-text">La Semana Santa en Potosí se vive con fervor en sus iglesias coloniales, destacando la procesión del <span class="text-danger">Santo Sepulcro</span>.</p>
+                        <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modalPotosi">Leer más</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Potosí -->
+            <div class="modal fade" id="modalPotosi" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Semana Santa en Potosí</h5>
+                            <button class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>En Potosí, la Semana Santa es una mezcla de tradición y fe. Las procesiones recorren las calles empedradas del centro histórico, con imágenes religiosas que datan de la época colonial.</p>
+                            <p><span class="fw-semibold text-primary">Dato:</span> La procesión del Santo Sepulcro es una de las más antiguas y solemnes del país.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Oruro -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://www.orurosemana.bo/wp-content/uploads/2023/04/semana-santa-oruro.jpg" class="card-img-top" alt="Oruro Semana Santa">
+                    <div class="card-body">
+                        <h5 class="card-title">Oruro <span class="badge bg-info">Altiplano</span></h5>
+                        <p class="card-text">En Oruro, la Semana Santa se vive con procesiones solemnes y la participación de fraternidades folklóricas que rinden homenaje a la Virgen del Socavón.</p>
+                        <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#modalOruro">Leer más</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Oruro -->
+            <div class="modal fade" id="modalOruro" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Semana Santa en Oruro</h5>
+                            <button class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Oruro, conocida por su Carnaval, también celebra la Semana Santa con gran devoción. Las procesiones recorren las calles principales, y los fieles visitan el Santuario del Socavón.</p>
+                            <p><span class="fw-bold text-success">Dato:</span> En algunas comunidades cercanas, se realizan rituales que combinan la fe católica con tradiciones indígenas.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chuquisaca -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://www.chuquisacalibre.bo/wp-content/uploads/2023/04/semana-santa-chuquisaca.jpg" class="card-img-top" alt="Chuquisaca Semana Santa">
+                    <div class="card-body">
+                        <h5 class="card-title">Chuquisaca <span class="badge bg-dark">Centro</span></h5>
+                        <p class="card-text">En Sucre, la capital, la Semana Santa se caracteriza por sus procesiones nocturnas y la visita a iglesias coloniales como San Lázaro y La Recoleta.</p>
+                        <button class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#modalChuquisaca">Leer más</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Chuquisaca -->
+            <div class="modal fade" id="modalChuquisaca" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Semana Santa en Chuquisaca</h5>
+                            <button class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>La ciudad de Sucre, con su rica herencia colonial, celebra la Semana Santa con procesiones que iluminan las calles empedradas. Los fieles participan en la tradicional visita a las siete iglesias.</p>
+                            <p><span class="fw-bold text-primary">Dato:</span> La gastronomía incluye platos como el ají de papalisa y el mondongo sin carne.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Beni -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://www.benilibre.bo/wp-content/uploads/2023/04/semana-santa-beni.jpg" class="card-img-top" alt="Beni Semana Santa">
+                    <div class="card-body">
+                        <h5 class="card-title">Beni <span class="badge bg-primary">Amazonía</span></h5>
+                        <p class="card-text">En Beni, la Semana Santa se celebra con procesiones fluviales y la participación de comunidades indígenas que aportan su música y danzas tradicionales.</p>
+                        <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalBeni">Leer más</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Beni -->
+            <div class="modal fade" id="modalBeni" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Semana Santa en Beni</h5>
+                            <button class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>En Beni, las procesiones fluviales son una tradición única, donde las imágenes religiosas son transportadas en canoas decoradas. Las comunidades indígenas también realizan rituales de agradecimiento a la naturaleza.</p>
+                            <p><span class="fw-bold text-success">Dato:</span> La gastronomía incluye pescado fresco y platos como el locro beniano.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pando -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://www.pandolibre.bo/wp-content/uploads/2023/04/semana-santa-pando.jpg" class="card-img-top" alt="Pando Semana Santa">
+                    <div class="card-body">
+                        <h5 class="card-title">Pando <span class="badge bg-success">Amazonía</span></h5>
+                        <p class="card-text">En Pando, la Semana Santa se celebra con procesiones sencillas y reuniones comunitarias que destacan la unión y la fe de sus habitantes.</p>
+                        <button class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalPando">Leer más</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Pando -->
+            <div class="modal fade" id="modalPando" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Semana Santa en Pando</h5>
+                            <button class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>En Pando, las celebraciones de Semana Santa son más íntimas, con procesiones que recorren las pequeñas comunidades. Los fieles se reúnen para compartir alimentos y rezos.</p>
+                            <p><span class="fw-bold text-primary">Dato:</span> La gastronomía incluye platos como el masaco de plátano y el pescado a la brasa.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-5">
+            <h2 class="text-center">Curiosidades de la Semana Santa Boliviana</h2>
+            <div class="accordion mt-3" id="curiosidadesAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                            ¿Por qué se comen 12 platos?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            Esta tradición representa la Última Cena de Jesús con sus 12 apóstoles. Es una costumbre andina combinada con la religión católica, que incluye platos sin carne como quesos, habas, y postres típicos.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                            ¿Cómo influye la cultura indígena en la Semana Santa?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Muchas comunidades fusionan rituales ancestrales con prácticas católicas. Es común ver ceremonias con <span class="text-danger">copal, sahumerios</span> y cánticos en quechua o aymara.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+      `;
+    }
+
+    function tradiciones() {
+      document.getElementById('contenido').innerHTML = `
+            <div class="container mt-5">
+        <h1 class="text-center mb-4">Tradiciones de Semana Santa en Bolivia</h1>
+        <div class="accordion m-3" id="accordionBolivia">
+
+            <!-- La Paz -->
+            <div class="accordion-item border-2" style="transition: border-color 0.3s;">
+                <style>
+                    .accordion-item:hover {
+                        border-image-source: linear-gradient(to right, #5f9fff, #044bf2);
+                        border-image-slice: 1;
+                    }
+                </style>
+                <h2 class="accordion-header" id="headingLaPaz">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLaPaz" aria-expanded="true" aria-controls="collapseLaPaz">
+                        La Paz
+                    </button>
+                </h2>
+                <div id="collapseLaPaz" class="accordion-collapse collapse show" aria-labelledby="headingLaPaz" data-bs-parent="#accordionBolivia">
+                    <div class="accordion-body">
+                        <p>En La Paz, la Semana Santa se caracteriza por procesiones solemnes y la visita a las siete iglesias el Jueves Santo. Los fieles recorren templos emblemáticos del centro histórico como parte de esta tradición. Además, se realizan representaciones teatrales de la Pasión de Cristo en diferentes barrios, donde los actores locales recrean los últimos momentos de Jesús. Estas actividades reúnen a familias enteras, quienes también participan en la preparación de comidas típicas como la sopa de maní y el pescado frito, respetando la tradición de no consumir carne roja durante esta época.</p>
+                        <img src="img/tradiciones/lapaz.jpeg" alt="Procesión en La Paz" class="img-fluid mt-3">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cochabamba -->
+            <div class="accordion-item border-2">
+                <h2 class="accordion-header" id="headingCochabamba">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCochabamba" aria-expanded="false" aria-controls="collapseCochabamba">
+                        Cochabamba
+                    </button>
+                </h2>
+                <div id="collapseCochabamba" class="accordion-collapse collapse" aria-labelledby="headingCochabamba" data-bs-parent="#accordionBolivia">
+                    <div class="accordion-body">
+                        <p>En Cochabamba, durante la Semana Santa, es común el consumo del pejtu de habas, un ají preparado con habas frescas, cebolla, queso y ají amarillo. Además, las familias se reúnen para preparar una variedad de platos tradicionales que incluyen el pescado a la parrilla y el ají de papalisa. Las procesiones en esta región son acompañadas por bandas de música que interpretan melodías solemnes, mientras los fieles llevan velas y flores como ofrendas. También se realizan viacrucis en las colinas cercanas, donde los participantes reflexionan sobre los valores de la fe y la comunidad.</p>
+                        <img src="img/tradiciones/cochabanba.jpg" alt="Pejtu de habas" class="img-fluid mt-3">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Santa Cruz -->
+            <div class="accordion-item border-2" >
+                <h2 class="accordion-header" id="headingSantaCruz">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSantaCruz" aria-expanded="false" aria-controls="collapseSantaCruz">
+                        Santa Cruz
+                    </button>
+                </h2>
+                <div id="collapseSantaCruz" class="accordion-collapse collapse" aria-labelledby="headingSantaCruz" data-bs-parent="#accordionBolivia">
+                    <div class="accordion-body">
+                        <p>En Santa Cruz, el sonso de yuca es un platillo tradicional durante la Semana Santa. Se prepara con yuca, queso y otros ingredientes, y se consume en la calle como parte de la tradición gastronómica de la región oriental de Bolivia. Además, las familias suelen reunirse para compartir comidas al aire libre, aprovechando el clima cálido de la región. Las procesiones en Santa Cruz son coloridas y están acompañadas por cánticos religiosos, mientras que las iglesias locales organizan actividades especiales como misas al amanecer y bendiciones de alimentos.</p>
+                        <img src="img/tradiciones/santacruz.jpeg" alt="Sonso de yuca" class="img-fluid mt-3">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Oruro -->
+            <div class="accordion-item border-2">
+                <h2 class="accordion-header" id="headingOruro">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOruro" aria-expanded="false" aria-controls="collapseOruro">
+                        Oruro
+                    </button>
+                </h2>
+                <div id="collapseOruro" class="accordion-collapse collapse" aria-labelledby="headingOruro" data-bs-parent="#accordionBolivia">
+                    <div class="accordion-body">
+                        <p>En Oruro, una tradición única de Semana Santa es la creación de esculturas de arena en la zona de Cochiraya, representando escenas bíblicas y religiosas. Estas esculturas, elaboradas con gran detalle, atraen a visitantes de todo el país. Además, se realizan procesiones nocturnas con velas, creando un ambiente solemne y espiritual. Las familias orureñas también preparan platos típicos como el charquekan y el wallake, que son compartidos en reuniones familiares después de las actividades religiosas.</p>
+                        <img src="img/tradiciones/oruro.jpg" alt="Esculturas de arena en Oruro" class="img-fluid mt-3">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Potosí -->
+            <div class="accordion-item border-2">
+                <h2 class="accordion-header" id="headingPotosi">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePotosi" aria-expanded="false" aria-controls="collapsePotosi">
+                        Potosí
+                    </button>
+                </h2>
+                <div id="collapsePotosi" class="accordion-collapse collapse" aria-labelledby="headingPotosi" data-bs-parent="#accordionBolivia">
+                    <div class="accordion-body">
+                        <p>En Potosí, la Semana Santa se vive con procesiones tradicionales y la preparación de platos típicos como el ají de papalisa y el wallake de pescado. Estas comidas forman parte de los 12 platos que se consumen en Viernes Santo, simbolizando los 12 apóstoles. Las procesiones recorren las calles empedradas del centro histórico, donde los fieles llevan imágenes religiosas y cánticos. Además, se realizan viacrucis en las colinas cercanas, donde los participantes reflexionan sobre la fe y la historia religiosa de la región.</p>
+                        <img src="img/tradiciones/potosi.jpg" alt="Semana Santa en Potosí" class="img-fluid mt-3">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chuquisaca -->
+            <div class="accordion-item border-2">
+                <h2 class="accordion-header" id="headingChuquisaca">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChuquisaca" aria-expanded="false" aria-controls="collapseChuquisaca">
+                        Chuquisaca
+                    </button>
+                </h2>
+                <div id="collapseChuquisaca" class="accordion-collapse collapse" aria-labelledby="headingChuquisaca" data-bs-parent="#accordionBolivia">
+                    <div class="accordion-body">
+                        <p>En Chuquisaca, especialmente en Sucre, se realizan viacrucis en las calles empedradas del centro histórico y las familias preparan comidas sin carne, como el ají de arvejas. Las iglesias coloniales son decoradas con flores, y los fieles participan en misas solemnes. Además, se organizan conciertos de música sacra en las iglesias, destacando el patrimonio cultural y religioso de la región. Las familias también aprovechan esta época para visitar los mercados locales y adquirir productos frescos para sus preparaciones culinarias.</p>
+                        <img src="img/tradiciones/chuquisaca.jpeg" alt="Viacrucis en Sucre" class="img-fluid mt-3">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarija -->
+            <div class="accordion-item border-2">
+                <h2 class="accordion-header" id="headingTarija">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTarija" aria-expanded="false" aria-controls="collapseTarija">
+                        Tarija
+                    </button>
+                </h2>
+                <div id="collapseTarija" class="accordion-collapse collapse" aria-labelledby="headingTarija" data-bs-parent="#accordionBolivia">
+                    <div class="accordion-body">
+                        <p>En Tarija, la Semana Santa se acompaña con la preparación de comidas tradicionales como la sopa de pan y las empanadas dulces. Además, se realizan procesiones en el centro y visitas a templos antiguos como San Francisco. Las familias tarijeñas también organizan reuniones para compartir historias y reflexionar sobre los valores religiosos. Las calles del centro histórico son decoradas con alfombras de flores y aserrín, creando un ambiente festivo y espiritual que atrae a turistas y locales por igual.</p>
+                        <img src="img/tradiciones/tarija.jpeg" alt="Tradición en Tarija" class="img-fluid mt-3">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Beni -->
+            <div class="accordion-item border-2">
+                <h2 class="accordion-header" id="headingBeni">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBeni" aria-expanded="false" aria-controls="collapseBeni">
+                        Beni
+                    </button>
+                </h2>
+                <div id="collapseBeni" class="accordion-collapse collapse" aria-labelledby="headingBeni" data-bs-parent="#accordionBolivia">
+                    <div class="accordion-body">
+                        <p>En Beni, se celebra con procesiones en las principales calles y se acostumbra preparar platos como el pacumutu (carne en brochetas) y pescado a la brasa. Las familias se reúnen para compartir comidas y reflexionar. Además, las comunidades indígenas de la región realizan ceremonias especiales que combinan tradiciones cristianas con rituales ancestrales, destacando la riqueza cultural de Beni. Las actividades religiosas incluyen misas al aire libre y bendiciones de alimentos, donde los fieles expresan su gratitud y esperanza.</p>
+                        <img src="img/tradiciones/beni.jpeg" alt="Semana Santa en Beni" class="img-fluid mt-3">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pando -->
+            <div class="accordion-item border-2">
+                <h2 class="accordion-header" id="headingPando">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePando" aria-expanded="false" aria-controls="collapsePando">
+                        Pando
+                    </button>
+                </h2>
+                <div id="collapsePando" class="accordion-collapse collapse" aria-labelledby="headingPando" data-bs-parent="#accordionBolivia">
+                    <div class="accordion-body">
+                        <p>En Pando, la Semana Santa se vive en comunidad, con misas, viacrucis y actividades religiosas. Es común compartir platos con pescado de río, como el surubí, y chicha de maíz. Las celebraciones son más íntimas y familiares, con énfasis en la unión y la reflexión. Las comunidades rurales también organizan ferias donde se venden productos locales y artesanías, permitiendo a los visitantes conocer más sobre la cultura y las tradiciones de esta región amazónica.</p>
+                        <img src="img/tradiciones/pando.jpg" alt="Celebración en Pando" class="img-fluid mt-3">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+      `;
+    }
+
+    function receta() {
+      document.getElementById('contenido').innerHTML = `
+        <header>
+    <div class="container">
+        <h1 class="text-center">Recetas de la Semana Santa</h1>
+        <p class="text-center">Descubre las <span class="text-info">deliciosas recetas típicas de Bolivia</span> para disfrutar en esta temporada.</p>
+    </div>
+    <div class="container">
+        <h2 class="text-center">Platos Típicos</h2>
+        <p class="text-center">Explora los sabores de cada región de Bolivia.</p>
+    </div>
+<!-- la PAZ -->
+<div class="row p-4 m-3 text-center">
+    <div class="col-lg-4">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="img/recetas/fricaase.jpeg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">LA PAZ - FRICASE</h5>
+              <h6 class="card-text">Descripcion:</h6>
+              <p class="card-text">Sopa espesa de carne de cerdo con maíz pelado y ají amarillo.</p>
+
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Receta
+              </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="img/recetas/Majadito.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">SANTA CRUZ - Majadito</h5>
+              <h6 class="card-text">Descripcion:</h6>
+              <p class="card-text">Arroz cocido con charque o carne, servido con plátano y huevo.</p>
+
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#SANTACRUZ">
+                Receta
+              </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 text-info"><div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="img/recetas/silpancho.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">COCHABAMBA - Silpancho</h5>
+          <h6 class="card-text">Descripcion:</h6>
+          <p class="card-text">Arroz cocido con charque o carne, servido con plátano y huevo.</p>
+
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#COCHABAMBA">
+            Receta
+          </button>
+        </div>
+    </div></div>
+    <div class="col-lg-4 text-info">        <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="img/recetas/kalapurka.jpeg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">POTOSI - Kalapurka</h5>
+          <h6 class="card-text">Descripcion</h6>
+          <p class="card-text">Sopa espesa de maíz y carne, cocinada con una piedra caliente.</p>
+
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#POTOSI">
+            Receta
+          </button>
+        </div>
+    </div></div>
+    <div class="col-lg-4 text-info">    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="img/recetas/Mondongo_Chuquisaqueño.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">CHUQUISACA - Mondongo Chuquisaqueño</h5>
+          <h6 class="card-text">Descripcion</h6>
+          <p class="card-text">Carne de cerdo en salsa de ají colorado, servida con mote.</p>
+
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#CHUQUISACA">
+            Receta
+          </button>
+        </div>
+    </div></div>
+    <div class="col-lg-4 text-info"><div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="img/recetas/charkekan.jpeg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">ORURO - Charquekan</h5>
+          <h6 class="card-text">Descripcion:</h6>
+          <p class="card-text">Charque de llama o res, acompañado de mote, papa y queso.</p>
+
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ORURO">
+            Receta
+          </button>
+        </div>
+    </div></div>
+    <div class="col-lg-4 text-info">    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="img/recetas/ranga-blanca.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">TARIJA - Ranga Ranga</h5>
+          <h6 class="card-text">Descripcion:</h6>
+          <p class="card-text">Caldo picante de panza de res, ideal para el frío.</p>
+
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#TARIJA">
+            Receta
+          </button>
+        </div>
+    </div></div>
+    <div class="col-lg-4 text-info">    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="img/recetas/sudado_de_pesacdo.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">PANDO - Sudado de Pescado</h5>
+          <h6 class="card-text">Descripcion</h6>
+          <p class="card-text">Pescado en caldo espeso con yuca y plátano, típico de la Amazonía.</p>
+
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#PANDO">
+            Receta
+          </button>
+        </div>
+    </div></div>
+</div>
+
+
+
+
+<!-- santa cruz-->
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Receta del plato Fricase</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul><li>Ingredientes:</li>
+                            <ol>1 kg de carne de cerdo (costillas o pecho)</ol>
+                            <ol>1 taza de maíz pelado cocido</ol>
+                            <ol>3 dientes de ajo</ol>
+                            <ol>1 cebolla picada</ol>
+                            <ol>2 cucharadas de ají amarillo molido</ol>
+                            <ol>Comino, orégano, sal</ol>
+                            <ol>1 papa por persona</ol>
+                            <ol>Hierbabuena</ol>
+                            </ul>
+                        <ul><li>Instrucciones:</li></ul>
+                            <ol><li>Hervir la carne con ajo, cebolla y sal hasta que esté suave.</li>
+    
+                                <li>Agregar el maíz cocido y el ají amarillo.</li>
+                                <li>Añadir comino, orégano y hierbabuena al gusto.</li>
+                                <li>Hervir hasta que el caldo espese.</li>
+                                <li>Servir con papas enteras cocidas.</li></ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+    <!-- la PAZ -->
+        <!-- Modal -->
+        <div class="modal fade" id="SANTACRUZ" tabindex="-1" aria-labelledby="SANTACRUZLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="SANTACRUZLabel">Receta de Majadito</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul><li>Ingredientes:</li>
+                            <ol>2 tazas de arroz</ol>
+                            <ol>1 taza de charque o carne desmenuzada</ol>
+                            <ol>1 plátano maduro</ol>
+                            <ol>1 huevo por persona</ol>
+                            <ol>1 cebolla picada</ol>
+                            <ol>Comino, sal, pimienta</ol>
+                            </ul>
+                        <ul><li>Instrucciones:</li></ul>
+                            <ol><li>Cocer el arroz con agua y sal.</li>
+                                <li>En una sartén, freír la cebolla y añadir el charque.</li>
+                                <li>Agregar el arroz cocido y mezclar bien.</li>
+                                <li>Servir con plátano frito y huevo duro.</li>
+                                <li>Disfrutar de tu Majadito.</li></ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal2 -->
+        <!-- Modal -->
+        <div class="modal fade" id="COCHABAMBA" tabindex="-1" aria-labelledby="COCHABAMBALabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="COCHABAMBALabel">Receta de Silpancho</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <ul><li>Ingredientes:</li>
+                            <ol>2 tazas de arroz</ol>
+                            <ol>1 taza de charque o carne desmenuzada</ol>
+                            <ol>1 plátano maduro</ol>
+                            <ol>1 huevo por persona</ol>
+                            <ol>1 cebolla picada</ol>
+                            <ol>Comino, sal, pimienta</ol>
+                        </ul>
+                        <ul><li>Instrucciones:</li></ul>
+                            <ol><li>Cocer el arroz con agua y sal.</li>
+                                <li>En una sartén, freír la cebolla y añadir el charque.</li>
+                                <li>Agregar el arroz cocido y mezclar bien.</li>
+                                <li>Servir con plátano frito y huevo duro.</li>
+                                <li>Disfrutar de tu Silpancho.</li></ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary">Guardar cambios</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+<!-- dep2 -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="POTOSI" tabindex="-1" aria-labelledby="POTOSILabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="POTOSILabel">Receta de Kalapurka</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul><li>Ingredientes</li></ul>
+                        <ol>2 tazas de maíz</ol>
+                        <ol>1 taza de carne</ol>
+                        <ol>1 piedra caliente</ol>
+                        <ol>Sal al gusto</ol>
+                        <ol>1 cebolla picada</ol>
+                        <ol>Comino al gusto</ol>
+                    <ul><li>Instrucciones:</li></ul>
+                    <ol>
+                        <li>Hervir el maíz en agua hasta que esté tierno.</li>
+                        <li>Agregar la carne y la cebolla picada.</li>
+                        <li>Colocar la piedra caliente en la olla para cocinar.</li>
+                        <li>Agregar sal y comino al gusto.</li>
+                        <li>Servir caliente.</li>
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Modal -->
+<!-- dep3 -->
+
+<!-- chuquisaca -->
+
+<!-- Modal -->
+<div class="modal fade" id="CHUQUISACA" tabindex="-1" aria-labelledby="CHUQUISACALabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="CHUQUISACALabel">Receta de Mondongo Chuquisaqueño</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul><li>Ingredientes</li></ul>
+                    <ol>1 kg de carne de cerdo</ol>
+                    <ol>2 tazas de mote cocido</ol>
+                    <ol>3 cucharadas de ají colorado</ol>
+                    <ol>1 cebolla picada</ol>
+                    <ol>Comino, sal al gusto</ol>
+                <ul><li>Instrucciones:</li></ul>
+                <ol>
+                    <li>Cocer la carne en agua con sal y comino.</li>
+                    <li>Agregar la cebolla y el ají colorado.</li>
+                    <li>Cocinar hasta que la carne esté tierna.</li>
+                    <li>Servir con mote cocido.</li>
+                </ol>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<!-- dep3 -->
+ <!-- oruro -->
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="ORURO" tabindex="-1" aria-labelledby="ORUROLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ORUROLabel">Receta de Charquekan</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul><li>Ingredientes</li></ul>
+                
+                    <ol>1 kg de charque de llama o res</ol>
+                    <ol>2 tazas de mote cocido</ol>
+                    <ol>2 papas cocidas</ol>
+                    <ol>Queso al gusto</ol>
+                    <ol>Comino, sal al gusto</ol>
+                
+                <ul><li>Instrucciones:</li></ul>
+                <ol>
+                    <li>Cocer el charque en agua con sal y comino.</li>
+                    <li>Servir con mote cocido y papas.</li>
+                    <li>Añadir queso al gusto.</li>
+                </ol>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<!-- dep3 -->
+<!-- tarija -->
+
+<!-- Modal -->
+<div class="modal fade" id="TARIJA" tabindex="-1" aria-labelledby="TARIJALabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="TARIJALabel">Recate de Ranga Ranga</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                <ul><li>Ingredientes</li></ul>
+                
+                    <ol>1 kg de panza de res</ol>
+                    <ol>2 tazas de agua</ol>
+                    <ol>2 cucharadas de ají rojo</ol>
+                    <ol>1 cebolla picada</ol>
+                    <ol>Sal al gusto</ol>
+                
+                <ul><li>Instrucciones:</li></ul>
+                <ol>
+                    <li>Cocer la panza de res en agua con sal.</li>
+                    <li>Agregar la cebolla y el ají rojo.</li>
+                    <li>Cocinar hasta que esté tierno.</li>
+                    <li>Servir caliente.</li>
+                </ol>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<!-- dep3 -->
+ <!-- beni -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="BENI" tabindex="-1" aria-labelledby="BENILabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="BENILabel">Receta de Locro Beniano</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul><li>Ingredientes</li></ul>
+
+                    <ol>2 tazas de arroz</ol>
+                    <ol>1 kg de carne (res o cerdo)</ol>
+                    <ol>1 cebolla picada</ol>
+                    <ol>2 cucharadas de ají amarillo</ol>
+                    <ol>Sal al gusto</ol>
+                <ul><li>Instrucciones:</li></ul>
+                <ol>
+                    <li>Cocinar ka carne </li>
+                    <li>Agregar el arroz y mezclar bien.</li>
+                    <li>Cocinar a fuego lento hasta que el arroz esté tierno.</li>
+                    <li>Servir caliente</li>
+                </ol>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<!-- dep3 -->
+<!-- pando -->
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="PANDO" tabindex="-1" aria-labelledby="PANDOLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="PANDOLabel">Receta de Sudado de Pescado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul><li>Ingredientes</li></ul>
+                <ol>1 Pescado grande (dorado,pacu)</ol>
+                <ol>2 tazas de yuca</ol>
+                <ol>2 plátanos</ol>
+                <ol>Sal al gusto</ol>
+                <ol>1 cebolla picada</ol>
+                <ol>2 cucharadas de ají amarillo</ol>
+                <ul><li>Instrucciones:</li></ul>
+                <ol>
+                    <li>Cocer el pescado en agua con sal y cebolla.</li>
+                    <li>Agregar la yuca y los plátanos.</li>
+                    <li>Cocinar hasta que estén tiernos.</li>
+                    <li>Servir caliente.</li>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<!-- dep3 -->
+</header>
+      `;
+    }
+
+    function turismo() {
+      document.getElementById('contenido').innerHTML = `
+        <header class="bg-light text-center py-5">
+    <h1 class="display-4">Turismo en Semana Santa</h1>
+    <p class="lead">Explora las tradiciones y destinos religiosos más representativos de Bolivia por departamento.</p>
+</header>
+
+<div class="container my-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        <div class="col">
+            <div class="card h-100">
+                <img src="img/turismo/la paz.jpeg" class="card-img-top" alt="La Paz">
+                <div class="card-body">
+                    <h5 class="card-title">La Paz</h5>
+                    <p class="card-text">Procesiones solemnes, visita a siete iglesias y recorridos históricos en el centro paceño.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100">
+                <img src="img/turismo/cochabanba.jpg" class="card-img-top" alt="Cochabamba">
+                <div class="card-body">
+                    <h5 class="card-title">Cochabamba</h5>
+                    <p class="card-text">Tradición culinaria con pejtu de habas, misas y actividades religiosas en la catedral metropolitana.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100">
+                <img src="img/turismo/santacruz.jpeg" class="card-img-top" alt="Santa Cruz">
+                <div class="card-body">
+                    <h5 class="card-title">Santa Cruz</h5>
+                    <p class="card-text">Sonso de yuca, viacrucis en zonas rurales y celebraciones con música y gastronomía típica.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100">
+                <img src="img/turismo/oruro.jpeg" class="card-img-top" alt="Oruro">
+                <div class="card-body">
+                    <h5 class="card-title">Oruro</h5>
+                    <p class="card-text">Esculturas de arena en Cochiraya con pasajes bíblicos y procesiones artísticas.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100">
+                <img src="img/turismo/potosi.jpg" class="card-img-top" alt="Potosí">
+                <div class="card-body">
+                    <h5 class="card-title">Potosí</h5>
+                    <p class="card-text">Tradicionales platos de Semana Santa como wallake, junto a peregrinaciones al Calvario.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100">
+                <img src="img/turismo/tarija.jpg" class="card-img-top" alt="Tarija">
+                <div class="card-body">
+                    <h5 class="card-title">Tarija</h5>
+                    <p class="card-text">Semana Santa vivida con misas solemnes, procesiones y platos típicos como la arvejada.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100">
+                <img src="img/turismo/beni.jpg" class="card-img-top" alt="Beni">
+                <div class="card-body">
+                    <h5 class="card-title">Beni</h5>
+                    <p class="card-text">Actividades religiosas en comunidades rurales, junto al consumo de pescado en platos tradicionales.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100">
+                <img src="img/turismo/chuquisaca.jpg" class="card-img-top" alt="Chuquisaca">
+                <div class="card-body">
+                    <h5 class="card-title">Chuquisaca</h5>
+                    <p class="card-text">Celebraciones en Sucre con procesiones coloniales y visita a templos históricos.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100">
+                <img src="img/turismo/pando.jpeg" class="card-img-top" alt="Pando">
+                <div class="card-body">
+                    <h5 class="card-title">Pando</h5>
+                    <p class="card-text">Pequeñas celebraciones en parroquias locales con un enfoque comunitario y espiritual.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+      `;
+    }
+
+    // Cargar contenido inicial
+    window.onload = inicio;
+  </script>
+</body>
+
+</html>
